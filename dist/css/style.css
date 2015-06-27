@@ -1,0 +1,38 @@
+@font-face {
+  font-family: 'sourcesanspro-regular';
+  src: url("fonts/sourcesanspro-regular.eot");
+  src: url("fonts/sourcesanspro-regular.eot?#iefix") format("embedded-opentype"), url("fonts/sourcesanspro-regular.woff") format('woff'), url("fonts/sourcesanspro-regular.ttf") format("truetype"), url("fonts/sourcesanspro-regular.svg#family") format('svg');
+  font-weight: normal;
+  font-style: normal;
+}
+@font-face {
+  font-family: 'sourcesanspro-semibold';
+  src: url("fonts/sourcesanspro-semibold.eot");
+  src: url("fonts/sourcesanspro-semibold.eot?#iefix") format("embedded-opentype"), url("fonts/sourcesanspro-semibold.woff") format('woff'), url("fonts/sourcesanspro-semibold.ttf") format("truetype"), url("fonts/sourcesanspro-semibold.svg#family") format('svg');
+  font-weight: normal;
+  font-style: normal;
+}
+body {
+  color: #f1e05a;
+}
+h1 {
+  font-size: 48px;
+  font-size: 3rem;
+  padding: 8px;
+  padding: 0.5rem;
+}
+.please {
+  -webkit-transform: translateX(10%);
+          transform: translateX(10%);
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+  -webkit-flex-direction: column;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  background: -webkit-linear-gradient(#f00, #00f);
+  background: linear-gradient(#f00, #00f);
+}

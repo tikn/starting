@@ -1,0 +1,17 @@
+// font( 'opensans-regular', normal, normal )
+-font-face(args)
+  path = './fonts/'
+  types = eot woff ttf svg
+  
+  @font-face {
+    font-family args[0]
+    src: url( path + args[0] + "." types[0] )
+    src: url( path + args[0] + "." types[0] + "?#iefix" ) format("embedded-opentype"),
+      url( path + args[0] + "." types[1] ) format( "" + types[1] ),
+      url( path + args[0] + "." types[2] ) format( "truetype" ),
+      url( path + args[0] + "." types[3] + "#" + (family)) format( "" + types[3] )
+    font-weight: args[1]
+    font-style: args[2]
+  }
+font()
+  -font-face(arguments)
