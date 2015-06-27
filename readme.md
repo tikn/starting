@@ -1,4 +1,4 @@
-Just another Gulp-based web apps / sites starting point.
+Just another Gulp-based template for web apps / sites starting point.
 
 1. Clone
 2. `$ npm install`
