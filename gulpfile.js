@@ -1,4 +1,4 @@
-// loading grunt and plugin
+// loading gulp and plugins
 var gulp = require('gulp'),
     changed = require('gulp-changed'),
     connect = require('gulp-connect'),
@@ -19,19 +19,17 @@ var devBuild = ((process.env.NODE_ENV || 'development').trim().toLowerCase() !==
 // logging environment
 console.log('Environment: ' + (devBuild ? 'development' : 'production'));
 
-
+// root
 var SOURCE = 'src/',
     DEST = 'dist/';
 
-
-// connect
+// Connect
 gulp.task('connect', function() {
     connect.server({
       root: DEST,
       livereload: true
     });
 });
-
 
 // HTML
 var HTML = {
@@ -47,7 +45,6 @@ gulp.task('html', function() {
     .pipe(gulp.dest(HTML.OUT))
     .pipe(connect.reload());
 });
-
 
 // CSS
 var CSS = {
@@ -72,7 +69,6 @@ gulp.task('css', function() {
     .pipe(gulp.dest(CSS.OUT))
     .pipe(connect.reload());
 });
-
 
 // Minify images
 var IMG = {
@@ -129,9 +125,8 @@ gulp.task('js', function() {
       .pipe(uglify())
       .pipe(gulp.dest(JS.OUT));
   }
-
 });
-// minify and concatenate libraries/dependencies
+// Minify and concatenate libraries/dependencies
 gulp.task('libs', function() {
   return gulp.src(JS.LIBS.IN)
     .pipe(changed(JS.LIBS.OUT))
@@ -142,7 +137,7 @@ gulp.task('libs', function() {
     .pipe(gulp.dest(JS.LIBS.OUT));
 });
 
-// default taks
+// Default taks
 gulp.task('default',['html', 'css', 'images', 'fonts', 'js', 'libs', 'connect'], function() {
 
   gulp.watch(HTML.IN, ['html']);
