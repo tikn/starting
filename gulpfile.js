@@ -104,14 +104,18 @@ gulp.task('fonts', function() {
 
 // JS
 var JS = {
-  IN: SOURCE + 'js/**/*',
+  IN: SOURCE + 'js/*.js',
   OUT: DEST + 'js',
-  PROD: 'app-concat.js'
+  CONCATE: 'app-concate.js',
+  LIBS: {
+    IN: SOURCE + 'js/lib/*.js',
+    OUT: DEST + 'js/lib',
+    NAME: 'scripts.js'
+  }
 };
 gulp.task('js', function() {
   if (devBuild) {
     return gulp.src(JS.IN)
-      .pipe(changed(JS.OUT))
       .pipe(jshint())
       .pipe(jshint.reporter('default'))
       .pipe(jshint.reporter('fail'))
@@ -120,17 +124,26 @@ gulp.task('js', function() {
   } else {
     return gulp.src(JS.IN)
       .pipe(deporder())
-      .pipe(concat(JS.PROD))
+      .pipe(concat(JS.CONCATE))
       .pipe(stripdebug())
-      .pipe(uglify()) // minify concatenate scripts, remove if not necessary
+      .pipe(uglify())
       .pipe(gulp.dest(JS.OUT));
   }
 
 });
-
+// minify and concatenate libraries/dependencies
+gulp.task('libs', function() {
+  return gulp.src(JS.LIBS.IN)
+    .pipe(changed(JS.LIBS.OUT))
+    .pipe(deporder())
+    .pipe(concat(JS.LIBS.NAME))
+    .pipe(stripdebug())
+    .pipe(uglify())
+    .pipe(gulp.dest(JS.LIBS.OUT));
+});
 
 // default taks
-gulp.task('default',['html', 'css', 'images', 'fonts', 'js', 'connect'], function() {
+gulp.task('default',['html', 'css', 'images', 'fonts', 'js', 'libs', 'connect'], function() {
 
   gulp.watch(HTML.IN, ['html']);
 
