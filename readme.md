@@ -1,8 +1,8 @@
 Just another Gulp-based web apps / sites starting point.
 
-1. Clone
+1. Clone and `$ cd` to it
 2. `$ npm install`
-3. [localhost:8080](http://localhost:8080/) in your browser.
+3. `$ gulp` and [localhost:8080](http://localhost:8080/) in your browser.
 
 ##### HTML
 
