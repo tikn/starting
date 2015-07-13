@@ -149,5 +149,7 @@ gulp.task('default',['html', 'css', 'images', 'fonts', 'js', 'libs', 'connect'],
   gulp.watch(FONTS.IN, ['fonts']);
 
   gulp.watch(JS.IN, ['js']);
+  
+  gulp.watch(JS.LIBS.IN, ['libs']);
 
 });
