@@ -21,10 +21,6 @@ Just another Gulp-based web apps / sites starting point.
 - [Stripdebug](https://github.com/sindresorhus/strip-debug)
 - [Uglify](https://github.com/terinjokes/gulp-uglify)
 
-##### Minify Images
-
-- [Imagemin](https://github.com/imagemin/imagemin)
-
 ##### Other
 
 - [Changed](https://github.com/sindresorhus/gulp-changed)

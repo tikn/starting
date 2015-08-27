@@ -9,8 +9,7 @@ var gulp = require('gulp'),
     pleeease = require('gulp-pleeease'),
     jshint = require('gulp-jshint'),
     stripdebug = require('gulp-strip-debug'),
-    uglify = require('gulp-uglify'),
-    imagemin = require('gulp-imagemin');
+    uglify = require('gulp-uglify');
 
 // file location
 // using: export NODE_ENV=production
@@ -70,18 +69,14 @@ gulp.task('css', function() {
     .pipe(connect.reload());
 });
 
-// Minify images
+// Copy images
 var IMG = {
   IN: SOURCE + 'img/*.*',
-  OUT: DEST + 'img',
-  OPTIONS: {
-    progressive: true // for JPG
-  }
+  OUT: DEST + 'img'
 };
 gulp.task('images', function() {
   return gulp.src(IMG.IN)
     .pipe(changed(IMG.OUT))
-    .pipe(imagemin())
     .pipe(gulp.dest(IMG.OUT))
     .pipe(connect.reload());
 });
