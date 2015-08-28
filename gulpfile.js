@@ -22,10 +22,11 @@ console.log('Environment: ' + (devBuild ? 'development' : 'production'));
 var SOURCE = 'src/',
     DEST = 'dist/';
 
-// Connect
+// Connect, default port: 8080
 gulp.task('connect', function() {
     connect.server({
       root: DEST,
+      // port: 8000,
       livereload: true
     });
 });
